@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Clases{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'inicio/css/lessons-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section para Clases -->
+<section class="lessons-hero">
+    <div class="container">
+        <h1>Nuestras Clases</h1>
+        <p>Descubre nuestra variedad de clases diseñadas para todos los niveles y objetivos fitness</p>
+    </div>
+</section>
+
+<!-- Filtros de Clases -->
+<section class="filters-section">
+    <div class="container">
+        <div class="filters-container">
+            <div class="filter-group">
+                <label for="class-filter">Filtrar por tipo:</label>
+                <select id="class-filter">
+                    <option value="">Todas las clases</option>
+                    <option value="cardio">Cardio</option>
+                    <option value="strength">Fuerza</option>
+                    <option value="flexibility">Flexibilidad</option>
+                    <option value="functional">Funcional</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Descripción de Clases -->
+<section class="class-descriptions">
+    <div class="container">
+        <h2 class="section-title">Nuestras Clases</h2>
+        <p class="section-subtitle">Conoce en detalle cada una de nuestras clases y sus beneficios</p>
+        <div class="class-cards">
+            {% for clase in clases %}
+            <div class="class-description-card">
+                <div class="class-image">
+                    {% if clase.imagen %}
+                        <img src="{{ clase.imagen.url }}" alt="{{ clase.nombre }}">
+                    {% else %}
+                        <img src="/placeholder.svg?height=300&width=400" alt="{{ clase.nombre }}">
+                    {% endif %}
+                </div>
+                <div class="class-content">
+                    <h3>{{ clase.nombre }}</h3>
+                    <p>{{ clase.descripcion }}</p>
+                    <div class="class-details">
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span>{{ clase.duracion }} min</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-fire"></i>
+                            <span>{{ clase.intensidad }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-user"></i>
+                            <span>{{ clase.instructor }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+cd 

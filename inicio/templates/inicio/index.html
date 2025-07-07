@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'inicio/css/index-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>TRANSFORMA TU CUERPO, <span>TRANSFORMA TU VIDA</span></h1>
+            <p>Únete a nuestra comunidad fitness y alcanza tus metas con los mejores entrenadores y equipamiento de última generación.</p>
+            <div class="hero-buttons">
+                <a href="{% url 'lessons' %}" class="btn btn-primary">Ver Clases</a>
+                <a href="#membership" class="btn btn-secondary">Planes</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">¿Por qué elegirnos?</h2>
+        <div class="features-container">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <h3>Equipamiento Moderno</h3>
+                <p>Contamos con las últimas máquinas y equipos para un entrenamiento efectivo y seguro.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>Entrenadores Expertos</h3>
+                <p>Nuestro equipo de profesionales certificados te guiará en cada paso de tu viaje fitness.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Variedad de Clases</h3>
+                <p>Desde yoga hasta HIIT, tenemos clases para todos los niveles y objetivos fitness.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Horarios Flexibles</h3>
+                <p>Abierto todos los días con horarios que se adaptan perfectamente a tu rutina.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="classes-preview">
+    <div class="container">
+        <h2 class="section-title">Nuestras Clases</h2>
+        <p class="section-subtitle">Descubre la variedad de entrenamientos que tenemos para ti</p>
+        <div class="classes-container">
+            <div class="class-card">
+                <div class="class-image">
+                    <img src="{% static 'inicio/img/funcion.jpg' %}" alt="Entrenamiento Funcional">
+                    <div class="class-overlay">
+                        <span class="class-badge">Popular</span>
+                    </div>
+                </div>
+                <div class="class-details">
+                    <h3>Entrenamiento Funcional</h3>
+                    <p>Mejora tu fuerza, resistencia y movilidad con ejercicios que imitan movimientos cotidianos.</p>
+                    <div class="class-meta">
+                        <span><i class="fas fa-clock"></i> 45 min</span>
+                        <span><i class="fas fa-fire"></i> Alta intensidad</span>
+                    </div>
+                    <a href="lessons.html" class="btn btn-primary">Ver Horarios</a>
+                </div>
+            </div>
+            <div class="class-card">
+                <div class="class-image">
+                    <img src="{% static 'inicio/img/spin.jpg' %}" alt="Spinning">
+                    <div class="class-overlay">
+                        <span class="class-badge featured">Destacado</span>
+                    </div>
+                </div>
+                <div class="class-details">
+                    <h3>Spinning</h3>
+                    <p>Quema calorías y mejora tu resistencia cardiovascular con nuestras energéticas clases de spinning.</p>
+                    <div class="class-meta">
+                        <span><i class="fas fa-clock"></i> 50 min</span>
+                        <span><i class="fas fa-fire"></i> Media-Alta</span>
+                    </div>
+                    <a href="lessons.html" class="btn btn-primary">Ver Horarios</a>
+                </div>
+            </div>
+            <div class="class-card">
+                <div class="class-image">
+                    <img src="{% static 'inicio/img/coordinar.jpg' %}" alt="Coordinación">
+                    <div class="class-overlay">
+                        <span class="class-badge">Nuevo</span>
+                    </div>
+                </div>
+                <div class="class-details">
+                    <h3>Coordinación</h3>
+                    <p>Encuentra equilibrio entre cuerpo y mente mientras mejoras tu coordinación y flexibilidad.</p>
+                    <div class="class-meta">
+                        <span><i class="fas fa-clock"></i> 60 min</span>
+                        <span><i class="fas fa-leaf"></i> Baja-Media</span>
+                    </div>
+                    <a href="lessons.html" class="btn btn-primary">Ver Horarios</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="membership" class="membership">
+    <div class="container">
+        <h2 class="section-title">Planes de Membresía</h2>
+        <p class="section-subtitle">Elige el plan que mejor se adapte a tus necesidades y objetivos</p>
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Diario</h3>
+                    <div class="price-wrapper">
+                        <p class="price">$5.000<span>/día</span></p>
+                    </div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Acceso a sala de musculación</li>
+                        <li><i class="fas fa-check"></i> Horario limitado (8am - 4pm)</li>
+                        <li><i class="fas fa-check"></i> Evaluación física inicial</li>
+                        <li><i class="fas fa-times"></i> Clases grupales</li>
+                        <li><i class="fas fa-times"></i> Entrenador personal</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <a href="contact.html" class="btn btn-outline">Comenzar</a>
+                </div>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-badge">Más Popular</div>
+                <div class="pricing-header">
+                    <h3>Semanal</h3>
+                    <div class="price-wrapper">
+                        <p class="price">$20.000<span>/semana</span></p>
+                    </div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Acceso ilimitado 24/7</li>
+                        <li><i class="fas fa-check"></i> Todas las clases grupales</li>
+                        <li><i class="fas fa-check"></i> Evaluación física mensual</li>
+                        <li><i class="fas fa-check"></i> 1 sesión con entrenador personal</li>
+                        <li><i class="fas fa-check"></i> Acceso a sauna</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <a href="contact.html" class="btn btn-primary">Comenzar</a>
+                </div>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <h3>Mensual</h3>
+                    <div class="price-wrapper">
+                        <p class="price">$50.000<span>/mes</span></p>
+                    </div>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Acceso ilimitado 24/7</li>
+                        <li><i class="fas fa-check"></i> Todas las clases grupales</li>
+                        <li><i class="fas fa-check"></i> Evaluación física semanal</li>
+                        <li><i class="fas fa-check"></i> 4 sesiones con entrenador personal</li>
+                        <li><i class="fas fa-check"></i> Plan nutricional personalizado</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <a href="contact.html" class="btn btn-outline">Comenzar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="stats-section">
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number">500+</h3>
+                    <p class="stat-label">Miembros Activos</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-dumbbell"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number">15+</h3>
+                    <p class="stat-label">Clases Diferentes</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number">3</h3>
+                    <p class="stat-label">Años de Experiencia</p>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <div class="stat-content">
+                    <h3 class="stat-number">98%</h3>
+                    <p class="stat-label">Satisfacción</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="container">
+        <h2 class="section-title">Lo que dicen nuestros miembros</h2>
+        <p class="section-subtitle">Historias reales de transformación y éxito</p>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"Desde que me uní a EntrenaPro, he perdido 15 kilos y me siento con más energía que nunca. Los entrenadores son increíbles y siempre están dispuestos a ayudar."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-image">
+                        <img src="{% static 'inicio/img/persona1.jpg' %}" alt="María García">
+                    </div>
+                    <div class="author-info">
+                        <h4>María García</h4>
+                        <p>Miembro desde 2022</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"Las instalaciones son modernas y siempre están limpias. Las clases grupales son divertidas y desafiantes. ¡Definitivamente vale la pena!"</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-image">
+                        <img src="{% static 'inicio/img/persona2.jpg' %}" alt="Carlos Rodríguez">
+                    </div>
+                    <div class="author-info">
+                        <h4>Carlos Rodríguez</h4>
+                        <p>Miembro desde 2021</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-text">"He probado muchos gimnasios, pero ninguno como EntrenaPro. El ambiente es motivador y los entrenadores realmente se preocupan por tu progreso."</p>
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-image">
+                        <img src="{% static 'inicio/img/persona4.jpg' %}" alt="Ana Martínez">
+                    </div>
+                    <div class="author-info">
+                        <h4>Ana Martínez</h4>
+                        <p>Miembro desde 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>¿Listo para comenzar tu transformación?</h2>
+            <p>Únete hoy y obtén tu primera semana completamente gratis</p>
+            <div class="cta-buttons">
+                <a href="{% url 'contacto' %}" class="btn btn-primary btn-large">¡Comienza Ahora!</a>
+                <a href="{% url 'nosotros' %}" class="btn btn-secondary btn-large">Conoce Más</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

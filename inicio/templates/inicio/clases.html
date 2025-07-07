@@ -1,0 +1,37 @@
+<!-- lessons.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<section class="class-descriptions">
+    <div class="container">
+        <h2>Descripción de Clases</h2>
+        <div class="class-cards">
+            {% for clase in clases %}
+            <div class="class-description-card">
+                {% if clase.imagen %}
+                <div class="class-image" style="background-image: url('{{ clase.imagen.url }}')"></div>
+                {% else %}
+                <div class="class-image" style="background-image: url('/placeholder.svg?height=300&width=400')"></div>
+                {% endif %}
+                <div class="class-content">
+                    <h3>{{ clase.nombre }}</h3>
+                    <p>{{ clase.descripcion }}</p>
+                    <ul class="class-details">
+                        <li><i class="fas fa-clock"></i> {{ clase.duracion }} minutos</li>
+                        <li><i class="fas fa-fire"></i> Intensidad: {{ clase.intensidad }}</li>
+                        <li><i class="fas fa-user"></i> {{ clase.nivel }}</li>
+                    </ul>
+                    {% if es_cliente %}
+                        <button class="btn btn-primary btn-sm reservar-btn"
+                                data-nombre="{{ clase.nombre }}"
+                                data-instructor="{{ clase.instructor }}">
+                            Reservar
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,185 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Control de Inventario{% endblock %}
+
+{% block content %}
+<section class="admin-section">
+    <div class="container">
+        <div class="admin-header">
+            <h1>Control de Inventario</h1>
+            <div class="admin-actions">
+                <button id="add-item-btn" class="btn btn-primary"><i class="fas fa-plus"></i> Añadir Equipo</button>
+                <button id="export-btn" class="btn btn-secondary"><i class="fas fa-file-export"></i> Exportar</button>
+            </div>
+        </div>
+        
+        <div class="admin-filters">
+            <div class="search-container">
+                <input type="text" id="inventory-search" placeholder="Buscar equipo...">
+                <button class="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filter-container">
+                <select id="category-filter">
+                    <option value="">Todas las categorías</option>
+                    <option value="cardio">Cardio</option>
+                    <option value="strength">Fuerza</option>
+                    <option value="functional">Funcional</option>
+                    <option value="accessories">Accesorios</option>
+                </select>
+                <select id="status-filter">
+                    <option value="">Todos los estados</option>
+                    <option value="available">Disponible</option>
+                    <option value="in-use">En uso</option>
+                    <option value="maintenance">En mantenimiento</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="inventory-table-container">
+            <table class="inventory-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Ubicación</th>
+                        <th>Estado</th>
+                        <th>Última Revisión</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Cinta de Correr</td>
+                        <td>Cardio</td>
+                        <td>Zona Cardio</td>
+                        <td><span class="status available">Disponible</span></td>
+                        <td>15/05/2025</td>
+                        <td>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Bicicleta Estática</td>
+                        <td>Cardio</td>
+                        <td>Zona Cardio</td>
+                        <td><span class="status in-use">En uso</span></td>
+                        <td>10/05/2025</td>
+                        <td>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Banco de Pesas</td>
+                        <td>Fuerza</td>
+                        <td>Zona Pesas</td>
+                        <td><span class="status maintenance">En mantenimiento</span></td>
+                        <td>05/05/2025</td>
+                        <td>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <!-- Más filas de ejemplo -->
+                    <tr>
+                        <td>004</td>
+                        <td>Mancuernas (Set)</td>
+                        <td>Fuerza</td>
+                        <td>Zona Pesas</td>
+                        <td><span class="status available">Disponible</span></td>
+                        <td>01/05/2025</td>
+                        <td>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>005</td>
+                        <td>TRX</td>
+                        <td>Funcional</td>
+                        <td>Zona Funcional</td>
+                        <td><span class="status available">Disponible</span></td>
+                        <td>20/04/2025</td>
+                        <td>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                            <button class="action-btn delete-btn"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="pagination">
+            <button class="pagination-btn prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="pagination-numbers">
+                <button class="pagination-number active">1</button>
+                <button class="pagination-number">2</button>
+                <button class="pagination-number">3</button>
+            </div>
+            <button class="pagination-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+</section>
+
+<!-- Modal para añadir/editar equipo -->
+<div id="item-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Añadir Equipo</h2>
+            <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form id="item-form">
+                <div class="form-group">
+                    <label for="item-name">Nombre</label>
+                    <input type="text" id="item-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-category">Categoría</label>
+                    <select id="item-category" name="category" required>
+                        <option value="">Seleccionar categoría</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="strength">Fuerza</option>
+                        <option value="functional">Funcional</option>
+                        <option value="accessories">Accesorios</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-location">Ubicación</label>
+                    <input type="text" id="item-location" name="location" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-status">Estado</label>
+                    <select id="item-status" name="status" required>
+                        <option value="available">Disponible</option>
+                        <option value="in-use">En uso</option>
+                        <option value="maintenance">En mantenimiento</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="item-last-check">Última Revisión</label>
+                    <input type="date" id="item-last-check" name="last_check" required>
+                </div>
+                <div class="form-group">
+                    <label for="item-notes">Notas</label>
+                    <textarea id="item-notes" name="notes"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary cancel-btn">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'inicio/js/inventory.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Blog{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'inicio/css/blog-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="blog-hero">
+    <div class="container">
+        <h1>Blog de Fitness</h1>
+        <p>Consejos, noticias y artículos sobre fitness, nutrición y bienestar</p>
+    </div>
+</section>
+
+<section class="blog-content">
+    <div class="container">
+        <div class="blog-grid">
+            <div class="blog-main">
+
+                {# Publicación destacada #}
+                {% if destacado %}
+                <article class="blog-post featured">
+                    <div class="post-image">
+                        <img src="{{ destacado.imagen.url }}" alt="{{ destacado.titulo }}">
+                        <div class="post-category">{{ destacado.categoria }}</div>
+                    </div>
+                    <div class="post-content">
+                        <h2>{{ destacado.titulo }}</h2>
+                        <div class="post-meta">
+                            <span class="post-date"><i class="far fa-calendar"></i> {{ destacado.fecha|date:"d M, Y" }}</span>
+                            <span class="post-author"><i class="far fa-user"></i> {{ destacado.autor }}</span>
+                        </div>
+                        <p>{{ destacado.resumen }}</p>
+                        <a href="{% url 'blog_detail' destacado.pk %}" class="btn btn-sm">Leer más</a>
+                    </div>
+                </article>
+                {% endif %}
+
+                {# Otras publicaciones #}
+                <div class="blog-posts-grid">
+                    {% for post in posts %}
+                    <article class="blog-post">
+                        <div class="post-image">
+                            <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}">
+                            <div class="post-category">{{ post.categoria }}</div>
+                        </div>
+                        <div class="post-content">
+                            <h3>{{ post.titulo }}</h3>
+                            <div class="post-meta">
+                                <span class="post-date"><i class="far fa-calendar"></i> {{ post.fecha|date:"d M, Y" }}</span>
+                                <span class="post-author"><i class="far fa-user"></i> {{ post.autor }}</span>
+                            </div>
+                            <p>{{ post.resumen }}</p>
+                            <a href="{% url 'blog_detail' post.pk %}" class="btn btn-sm">Leer más</a>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+
+                {# Paginación #}
+                {% if is_paginated %}
+                <div class="pagination">
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}" class="pagination-btn"><i class="fas fa-chevron-left"></i></a>
+                    {% endif %}
+                    {% for num in paginator.page_range %}
+                        <a href="?page={{ num }}" class="pagination-btn {% if num == page_obj.number %}active{% endif %}">{{ num }}</a>
+                    {% endfor %}
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}" class="pagination-btn next"><i class="fas fa-chevron-right"></i></a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+
+            {# SIDEBAR dinámico o estático según tu preferencia #}
+            <aside class="blog-sidebar">
+                <div class="sidebar-widget search">
+                    <h3>Buscar</h3>
+                    <form class="search-form">
+                        <input type="text" placeholder="Buscar artículos...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+
+                <div class="sidebar-widget categories">
+                    <h3>Categorías</h3>
+                    <ul>
+                        <li><a href="#">Entrenamiento <span>(12)</span></a></li>
+                        <li><a href="#">Nutrición <span>(8)</span></a></li>
+                        <li><a href="#">Bienestar <span>(6)</span></a></li>
+                        <li><a href="#">Motivación <span>(4)</span></a></li>
+                        <li><a href="#">Equipamiento <span>(3)</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget recent-posts">
+                    <h3>Artículos Recientes</h3>
+                    {% for recent in posts|slice:":3" %}
+                    <div class="recent-post">
+                        <img src="{{ recent.imagen.url }}" alt="{{ recent.titulo }}" style="width: 80px; height: 80px; object-fit: cover;">
+                        <div>
+                            <h4><a href="{% url 'blog_detail' recent.pk %}">{{ recent.titulo }}</a></h4>
+                            <span class="post-date">{{ recent.fecha|date:"d M, Y" }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="sidebar-widget tags">
+                    <h3>Etiquetas</h3>
+                    <div class="tag-cloud">
+                        <a href="#">Fitness</a>
+                        <a href="#">Nutrición</a>
+                        <a href="#">Cardio</a>
+                        <a href="#">Fuerza</a>
+                        <a href="#">Yoga</a>
+                        <a href="#">Recuperación</a>
+                        <a href="#">Suplementos</a>
+                        <a href="#">Motivación</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget newsletter">
+                    <h3>Suscríbete</h3>
+                    <p>Recibe nuestros últimos artículos y consejos directamente en tu bandeja de entrada.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu email" required>
+                        <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+{% endblock %}

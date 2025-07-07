@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contacto{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'inicio/css/contact-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="contact-hero">
+    <div class="container">
+        <h1>Contáctanos</h1>
+        <p>Estamos aquí para responder tus preguntas y ayudarte a comenzar tu viaje fitness</p>
+    </div>
+</section>
+
+<section class="contact-info">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-form-container">
+                <h2>Envíanos un mensaje</h2>
+                <form id="contact-form" class="contact-form" method="post">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </div>
+                </form>
+            </div>
+            <div class="contact-details">
+                <h2>Información de Contacto</h2>
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Dirección</h3>
+                            <p>Av. Principal 123, Ciudad</p>
+                            <p>CP 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Teléfono</h3>
+                            <p>(123) 456-7890</p>
+                            <p>(123) 456-7891</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p>info@EntrenaPro.com</p>
+                            <p>soporte@EntrenaPro.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-method">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Horario</h3>
+                            <p>Lunes - Viernes: 6:00 AM - 10:00 PM</p>
+                            <p>Sábado - Domingo: 8:00 AM - 8:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <h3>Síguenos</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map-section">
+    <div class="container">
+        <h2>Encuéntranos</h2>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.8401961005047!2d-72.51890159142515!3d7.911756705447157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e66455ef594b109%3A0xaeb21574260c323e!2sCancha%20Sint%C3%A9tica%20Chapinero!5e0!3m2!1ses-419!2sco!4v1749787614499!5m2!1ses-419!2sco"
+                width="100%"
+                height="450"
+                style="border:0; display: block; margin: 0 auto; border-radius: 10px;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>¿Cómo puedo inscribirme?</h3>
+                    <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Puedes inscribirte directamente en nuestras instalaciones o completando el formulario de contacto en esta página. Un representante se pondrá en contacto contigo para finalizar el proceso.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>¿Ofrecen prueba gratuita?</h3>
+                    <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>¡Sí! Ofrecemos una semana de prueba gratuita para que puedas conocer nuestras instalaciones y clases antes de decidir.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>¿Cuáles son los métodos de pago aceptados?</h3>
+                    <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Aceptamos efectivo, tarjetas de crédito/débito, transferencias bancarias y pagos a través de nuestra aplicación móvil.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <h3>¿Puedo cancelar mi membresía en cualquier momento?</h3>
+                    <span class="accordion-icon"><i class="fas fa-plus"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <p>Las membresías mensuales pueden cancelarse con 15 días de anticipación. Las membresías anuales tienen un período mínimo de compromiso de 3 meses.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'inicio/js/contact.js' %}"></script>
+{% endblock %}

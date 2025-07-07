@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Nosotros{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'inicio/css/about-styles.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="about-hero">
+    <div class="container">
+        <h1>Sobre EntrenaPro</h1>
+        <p>Conoce nuestra historia, misión y el equipo detrás de tu gimnasio favorito</p>
+    </div>
+</section>
+
+<section class="about-story">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-image">
+                <img src="{% static 'inicio/img/fotogymhistoria.jpg' %}" alt="Historia del gimnasio">
+
+            </div>
+            <div class="about-text">
+                <h2>Nuestra Historia</h2>
+                <p>EntrenaPro nació en 2025 con una misión clara: crear un espacio donde las personas pudieran transformar sus vidas a través del fitness en un ambiente acogedor y motivador.</p>
+                <p>Lo que comenzó como un pequeño estudio con equipamiento básico, ha crecido hasta convertirse en uno de los gimnasios más completos de la ciudad, con más de 1,000 m² de instalaciones de última generación.</p>
+                <p>A lo largo de estos años, hemos ayudado a miles de personas a alcanzar sus metas fitness, creando una comunidad unida por la pasión por el bienestar y la vida saludable.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mission-vision">
+    <div class="container">
+        <div class="mission-vision-cards">
+            <div class="mv-card">
+                <div class="mv-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>Misión</h3>
+                <p>Inspirar y empoderar a las personas para que alcancen su máximo potencial físico y mental a través de programas de fitness innovadores, entrenadores expertos y una comunidad de apoyo.</p>
+            </div>
+            <div class="mv-card">
+                <div class="mv-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>Visión</h3>
+                <p>Ser reconocidos como el gimnasio líder en transformación de vidas, estableciendo nuevos estándares en la industria del fitness a través de la excelencia en servicio, innovación y resultados.</p>
+            </div>
+            <div class="mv-card">
+                <div class="mv-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Valores</h3>
+                <ul>
+                    <li>Excelencia en todo lo que hacemos</li>
+                    <li>Pasión por el bienestar</li>
+                    <li>Integridad y honestidad</li>
+                    <li>Comunidad y apoyo mutuo</li>
+                    <li>Innovación constante</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="team">
+    <div class="container">
+        <h2>Nuestro Equipo</h2>
+        <p class="section-subtitle">Conoce a los profesionales que te guiarán en tu entrenamiento</p>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="{% static 'inicio/img/entrenador1.jpg' %}" alt="Historia del gimnasio">
+                </div>
+                <div class="member-info">
+                    <h3>Roberto Sánchez</h3>
+                    <p class="member-role">Fundador & Director</p>
+                    <p class="member-bio">Con más de 15 años de experiencia en la industria del fitness, Roberto fundó FitLifeGym con la visión de crear un espacio donde todos pudieran alcanzar sus metas.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="{% static 'inicio/img/entrenador2.jpg' %}" alt="Historia del gimnasio">
+                </div>
+                <div class="member-info">
+                    <h3>Jose Martínez</h3>
+                    <p class="member-role">Directora de Yoga & Pilates</p>
+                    <p class="member-bio">Certificada en múltiples disciplinas de yoga y pilates, Ana ha dedicado su carrera a ayudar a las personas a encontrar equilibrio entre cuerpo y mente.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="{% static 'inicio/img/entrenador3.jpg' %}" alt="Historia del gimnasio">
+                </div>
+                <div class="member-info">
+                    <h3>Carlos Rodríguez</h3>
+                    <p class="member-role">Entrenador Principal HIIT</p>
+                    <p class="member-bio">Especialista en entrenamiento de alta intensidad, Carlos diseña programas desafiantes que maximizan resultados en el menor tiempo posible.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-image">
+                    <img src="{% static 'inicio/img/entrenador4.jpg' %}" alt="Historia del gimnasio">
+                </div>
+                <div class="member-info">
+                    <h3>Laura Sánchez</h3>
+                    <p class="member-role">Instructora de Spinning</p>
+                    <p class="member-bio">Con su energía contagiosa y playlists motivadoras, Laura convierte cada clase de spinning en una experiencia única que te empuja a superar tus límites.</p>
+                    <div class="member-social">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="facilities">
+    <div class="container">
+        <h2>Nuestras Instalaciones</h2>
+        <p class="section-subtitle">Equipamiento de última generación en un espacio diseñado para tu comodidad</p>
+        
+        <div class="facilities-gallery">
+            <div class="facility-item">
+                <img src="{% static 'inicio/img/zona-cardio.jpg' %}" alt="Historia del gimnasio">
+                <div class="facility-overlay">
+                    <h3>Zona de Cardio</h3>
+                </div>
+            </div>
+            <div class="facility-item">
+                <img src="{% static 'inicio/img/zona-pesas.jpg' %}" alt="Historia del gimnasio">
+                <div class="facility-overlay">
+                    <h3>Área de Pesas</h3>
+                </div>
+            </div>
+            <div class="facility-item">
+                <img src="{% static 'inicio/img/zona-yoga.jpg' %}" alt="Historia del gimnasio">
+                <div class="facility-overlay">
+                    <h3>Estudio de Yoga</h3>
+                </div>
+            </div>
+            <div class="facility-item">
+                <img src="{% static 'inicio/img/zona-spinning.jpg' %}" alt="Historia del gimnasio">
+                <div class="facility-overlay">
+                    <h3>Sala de Spinning</h3>
+                </div>
+            </div>
+            <div class="facility-item">
+                <img src="{% static 'inicio/img/zona-funcional.jpg' %}" alt="Historia del gimnasio">
+                <div class="facility-overlay">
+                    <h3>Zona Funcional</h3>
+                </div>
+            </div>
+            <div class="facility-item">
+                <img src="{% static 'inicio/img/zona-vestuario.jpg' %}" alt="Historia del gimnasio">
+                <div class="facility-overlay">
+                    <h3>Vestuarios</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="container">
+        <h2>Lo que dicen nuestros miembros</h2>
+        <div class="testimonials-slider">
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"FitLifeGym ha cambiado completamente mi vida. Los entrenadores son increíbles y siempre están dispuestos a ayudar. En solo 6 meses he logrado resultados que nunca pensé posibles."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="{% static 'inicio/img/testimonio1.jpg' %}" alt="Historia del gimnasio">
+                    <div>
+                        <h4>María García</h4>
+                        <p>Miembro desde 2022</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-content">
+                    <p>"Lo que más me gusta de FitLifeGym es el ambiente. No es solo un gimnasio, es una comunidad donde todos te apoyan y motivan. Las instalaciones son excelentes y siempre están limpias."</p>
+                </div>
+                <div class="testimonial-author">
+                    <img src="{% static 'inicio/img/testimonio2.jpg' %}" alt="Historia del gimnasio">
+                    <div>
+                        <h4>Juan Pérez</h4>
+                        <p>Miembro desde 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>¿Listo para unirte a nuestra comunidad?</h2>
+        <p>Comienza tu viaje fitness hoy mismo</p>
+        <a href="contact.html" class="btn btn-primary">¡Contáctanos!</a>
+    </div>
+</section>
+{% endblock %}

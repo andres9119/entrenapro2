@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section>
+  <div class="container">
+    <h2 class="section-title">Mi Perfil</h2>
+
+    <div class="perfil-card" style="background: var(--light-color); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--box-shadow); max-width: 600px; margin: 0 auto;">
+      <p><strong>Nombre completo:</strong><br>{{ usuario.first_name }} {{ usuario.last_name }}</p>
+      <p><strong>Correo electrónico:</strong><br>{{ usuario.email }}</p>
+      <p><strong>Nombre de usuario:</strong><br>{{ usuario.username }}</p>
+      <p><strong>Tipo de cuenta:</strong><br>
+        {% if usuario.is_staff %}
+          Administrador
+        {% else %}
+          Cliente
+        {% endif %}
+      </p>
+
+      <div style="margin-top: 30px; display: flex; justify-content: space-between; gap: 10px;">
+        <a href="{% url 'logout' %}" class="btn btn-secondary">Cerrar sesión</a>
+        
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
